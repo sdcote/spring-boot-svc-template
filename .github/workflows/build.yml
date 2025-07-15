@@ -1,0 +1,28 @@
+# Continuous Integration (CI) build and publish to Artifact Repository
+
+name: Build
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches:
+#    - main
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+    
+    steps:
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Checkout source
+        uses: actions/checkout@v4.1.1
+
+      - name: Build and Publish with Maven
+#        run: mvn -B -U clean deploy --file pom.xml
+        run: mvn -B -U clean install site --file pom.xml
