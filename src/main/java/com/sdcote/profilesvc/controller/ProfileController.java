@@ -1,6 +1,5 @@
 package com.sdcote.profilesvc.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,8 +17,8 @@ import com.sdcote.profilesvc.model.Greeting;
 @RestController
 @RequestMapping("/v1/profile")
 @Tag(name = "Demo Service", description = "Operations related to the demo service")
-
 public class ProfileController {
+
 
     /**
      * Greets the user with a default message or a personalized one.
@@ -37,6 +36,9 @@ public class ProfileController {
             @RequestParam(value = "name", defaultValue = "World") String name) {
         return ResponseEntity.ok(new Greeting("Hello, " + name + "!"));
     }
+
+
+
 
     /**
      * Returns a message with the provided ID.
